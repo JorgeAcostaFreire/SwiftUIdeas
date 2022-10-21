@@ -10,7 +10,7 @@ import SwiftUI
 struct SliderApp: View {
     @Environment (\.dismiss) var dismiss
     @State var radius : CGFloat = 10.0
-    @State var color : Color = .black
+    @State var color : Color = .mint
     var body: some View {
         NavigationView {
             VStack{

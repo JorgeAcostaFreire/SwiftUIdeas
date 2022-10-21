@@ -10,6 +10,7 @@ import SwiftUI
 struct GalleryView: View {
     @Environment(\.dismiss) var dismiss
     @State var sliderTapped : Bool = false
+    @State var gaugeTapped : Bool = false
     
     var body: some View {
         NavigationView {
@@ -21,7 +22,11 @@ struct GalleryView: View {
                         AppView(name: "SliderApp")
                     }
                     Spacer()
-                    AppView(name: "None")
+                    Button {
+                        self.gaugeTapped.toggle()
+                    } label: {
+                        AppView(name: "GaugeApp")
+                    }
                 }.padding(.horizontal)
             }
             .padding()
@@ -32,11 +37,13 @@ struct GalleryView: View {
                     } label: {
                         Image(systemName: "arrow.left")
                     }
-
                 }
             }
             .fullScreenCover(isPresented: self.$sliderTapped) {
                 SliderApp()
+            }
+            .fullScreenCover(isPresented: self.$gaugeTapped) {
+                GaugeApp()
             }
         }
         
