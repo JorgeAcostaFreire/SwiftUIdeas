@@ -11,6 +11,10 @@
 		4F1D977C2902E5760064515A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D977B2902E5760064515A /* ContentView.swift */; };
 		4F1D977E2902E5770064515A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D977D2902E5770064515A /* Assets.xcassets */; };
 		4F1D97812902E5770064515A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D97802902E5770064515A /* Preview Assets.xcassets */; };
+		4F1D97882902E6DF0064515A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D97872902E6DF0064515A /* Constants.swift */; };
+		4F1D978C2902E9920064515A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D978B2902E9920064515A /* TitleView.swift */; };
+		4F1D978E2902E9C90064515A /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D978D2902E9C90064515A /* GalleryView.swift */; };
+		4F1D97932902F7240064515A /* SliderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D97922902F7240064515A /* SliderApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		4F1D977B2902E5760064515A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4F1D977D2902E5770064515A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F1D97802902E5770064515A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4F1D97872902E6DF0064515A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4F1D978B2902E9920064515A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		4F1D978D2902E9C90064515A /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		4F1D97922902F7240064515A /* SliderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,9 @@
 			children = (
 				4F1D97792902E5760064515A /* SwiftUIdeasApp.swift */,
 				4F1D977B2902E5760064515A /* ContentView.swift */,
+				4F1D97912902F7080064515A /* Apps */,
+				4F1D978A2902E96D0064515A /* Model */,
+				4F1D97892902E9670064515A /* View */,
 				4F1D977D2902E5770064515A /* Assets.xcassets */,
 				4F1D977F2902E5770064515A /* Preview Content */,
 			);
@@ -65,6 +76,31 @@
 				4F1D97802902E5770064515A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4F1D97892902E9670064515A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F1D978B2902E9920064515A /* TitleView.swift */,
+				4F1D978D2902E9C90064515A /* GalleryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F1D978A2902E96D0064515A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F1D97872902E6DF0064515A /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F1D97912902F7080064515A /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				4F1D97922902F7240064515A /* SliderApp.swift */,
+			);
+			path = Apps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1D97932902F7240064515A /* SliderApp.swift in Sources */,
 				4F1D977C2902E5760064515A /* ContentView.swift in Sources */,
 				4F1D977A2902E5760064515A /* SwiftUIdeasApp.swift in Sources */,
+				4F1D97882902E6DF0064515A /* Constants.swift in Sources */,
+				4F1D978C2902E9920064515A /* TitleView.swift in Sources */,
+				4F1D978E2902E9C90064515A /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
