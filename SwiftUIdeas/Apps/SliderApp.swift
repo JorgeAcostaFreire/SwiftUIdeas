@@ -23,14 +23,14 @@ struct SliderApp: View {
                 Spacer()
                 Form{
                     HStack(spacing : 40) {
-                        Label("Radius", systemImage: "circle.and.line.horizontal.fill")
+                        Label("", systemImage: "circle.and.line.horizontal.fill")
                         Slider(value: self.$radius, in: 0...squareSize/2)
                     }
                     ColorPicker(selection: self.$color) {
-                        Label("Color", systemImage: "paintbrush.fill")
+                        Label("", systemImage: "paintbrush.fill")
                     }
                     Stepper(value: $squareSize, in: 100...size, step: 20) {
-                        Label("Size", systemImage: "ruler.fill")
+                        Label("", systemImage: "ruler.fill")
                     }
                 }.frame(height: 200).cornerRadius(10)
             }

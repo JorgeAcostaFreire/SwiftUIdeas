@@ -12,6 +12,7 @@ struct GaugeApp: View {
     @State var timer : Timer?
     @State var gameTimer : Timer?
     @State var gameTime : Int = 0
+    @State var taps : Int = 0
     @State var currentVal : Double = 0.0
     @State var isStarted : Bool = false
     @State var isEnded : Bool = false
@@ -42,7 +43,7 @@ struct GaugeApp: View {
         NavigationView {
             VStack {
                 Gauge(value: currentVal, in: minVal...maxVal) {
-                    Image(systemName: "crown.fill").padding(.bottom)
+                    Image(systemName: "crown.fill").padding(.bottom, 30).foregroundColor(.accentColor)
                 } currentValueLabel: {
                     Text("")
                 } minimumValueLabel: {
@@ -57,6 +58,7 @@ struct GaugeApp: View {
                 
                 if self.isStarted{
                     Button {
+                        self.taps += 1
                         self.currentVal += 5.0
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
@@ -76,9 +78,9 @@ struct GaugeApp: View {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: size / 1.5, height: size / 4)
                             .overlay {
-                                Text("Start")
+                                Image(systemName: "play.fill")
                                     .foregroundColor(.white)
-                                    .font(.system(size: size / 7, weight: .black, design: .rounded))
+                                    .font(.system(size: size / 7))
                             }
                     }
                 }
@@ -93,7 +95,7 @@ struct GaugeApp: View {
                 }
             }
         }.sheet(isPresented: self.$isEnded) {
-            EndgameView(gameTime: self.$gameTime)
+            EndgameView(gameTime: self.$gameTime, taps: self.$taps)
         }
 
     }
@@ -108,14 +110,21 @@ struct GaugeApp_Previews: PreviewProvider {
 struct EndgameView : View {
     @Environment (\.dismiss) var dismiss
     @Binding var gameTime : Int
+    @Binding var taps : Int
     var gameMinutes : Int {return (gameTime % 3600) / 60}
     var gameSeconds : Int {return gameTime % 60}
     
     var body: some View{
         VStack{
-            VStack {
-                Text("You won!")
-                Text(gameSeconds < 10 ? "\(gameMinutes):0\(gameSeconds)" : "\(gameMinutes):\(gameSeconds)")
+            VStack (spacing : 50) {
+                HStack {
+                    Image(systemName: "timer")
+                    Text(gameSeconds < 10 ? "\(gameMinutes):0\(gameSeconds)" : "\(gameMinutes):\(gameSeconds)")
+                }
+                HStack {
+                    Image(systemName: "hand.tap.fill")
+                    Text("\(taps)")
+                }
             }
             .foregroundColor(.accentColor)
             .font(.system(size: size / 7, weight: .black, design: .rounded))
@@ -128,7 +137,7 @@ struct EndgameView : View {
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: size / 1.5, height: size / 4)
                     .overlay {
-                        Text("Try Again")
+                        Image(systemName: "arrow.clockwise")
                             .foregroundColor(.white)
                             .font(.system(size: size / 9, weight: .black, design: .rounded))
                     }

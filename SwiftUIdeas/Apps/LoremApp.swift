@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoremApp: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(\.colorScheme) var colorScheme
     @State var loremText : String = ""
     @State var font : Font = .arial
     @State var fontSize : CGFloat = 20
@@ -30,29 +29,32 @@ struct LoremApp: View {
                 Form {
                     Section {
                         VStack {
-                            HStack(spacing : 20) {
+                            HStack(alignment: .center, spacing: 20) {
                                 Picker(selection: self.$font) {
                                     ForEach(Font.allCases) { font in
                                         Text(font.rawValue).font(.custom(font.rawValue, size: 10))
                                     }
                                 } label: {
-                                    Text("Font")
+                                    Image(systemName: "textformat").foregroundColor(.accentColor).fontWeight(.bold)
                                 }
+                                
                                 Divider()
                                 Toggle(isOn: $isBold) {
                                     Image(systemName: "bold")
                                 }
                                 .toggleStyle(.button)
-                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                                
                                 Divider()
                                 Toggle(isOn: $isItalic) {
                                     Image(systemName: "italic")
                                 }
                                 .toggleStyle(.button)
-                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                                
                             }
                             Divider()
-                            Stepper("Size", value: self.$fontSize, in: 10...30, step: 1.0)
+                            Stepper(value: self.$fontSize, in: 10...30, step: 1.0) {
+                                Label("", systemImage: "ruler.fill")
+                            }
                         }
                     }.frame(height: 70)
                     
@@ -64,9 +66,9 @@ struct LoremApp: View {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: size / 1.2, height: size / 5)
                             .overlay {
-                                Text("Generate")
+                                Image(systemName: "hand.tap.fill")
                                     .foregroundColor(.white)
-                                    .font(.system(size: size / 7, weight: .bold, design: .rounded))
+                                    .font(.system(size: size / 8, weight: .bold, design: .rounded))
                             }
                     }
                 }.frame(height: 250)

@@ -13,36 +13,27 @@ struct TitleView: View {
         NavigationView {
             VStack {
                 Spacer()
-                VStack {
-                    Image(systemName: "figure.wave")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("Hi!")
-                }
-                .font(.system(size: size / 5, weight: .black, design: .rounded))
-                .padding()
+                Image(systemName: "figure.wave")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                    .font(.system(size: size / 5, weight: .black, design: .rounded))
+                    .padding()
                 Spacer(minLength: 50)
                 NavigationLink {
-                    //self.isEnterTapped.toggle()
                     GalleryView().navigationBarBackButtonHidden()
                 } label: {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(height: size / 3)
                         .padding(.horizontal)
                         .overlay {
-                            Text("Enter")
+                            Image(systemName: "hand.tap.fill")
                                 .foregroundColor(.white)
-                                .font(.system(size: size / 8, weight: .bold, design: .rounded))
+                                .font(.system(size: size / 6, weight: .bold, design: .rounded))
                         }
                         .padding(.bottom)
                 }
             }
         }
-        /*
-        .fullScreenCover(isPresented: self.$isEnterTapped) {
-            GalleryView()
-        }
-         */
     }
 }
 

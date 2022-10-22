@@ -51,7 +51,6 @@ struct GalleryView: View {
                     }
                 }
             }
-            .navigationTitle("Gallery").navigationBarTitleDisplayMode(.inline)
         }
         
     }
