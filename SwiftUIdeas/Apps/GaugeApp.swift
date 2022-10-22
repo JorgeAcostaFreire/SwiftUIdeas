@@ -115,7 +115,7 @@ struct EndgameView : View {
         VStack{
             VStack {
                 Text("You won!")
-                Text("\(gameMinutes):\(gameSeconds)")
+                Text(gameSeconds < 10 ? "\(gameMinutes):0\(gameSeconds)" : "\(gameMinutes):\(gameSeconds)")
             }
             .foregroundColor(.accentColor)
             .font(.system(size: size / 7, weight: .black, design: .rounded))
