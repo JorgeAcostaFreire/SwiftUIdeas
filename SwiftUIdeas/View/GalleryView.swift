@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GalleryView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationView {
@@ -33,10 +34,10 @@ struct GalleryView: View {
                         AppView(name: "PictureApp")
                     }
                     Spacer()
-                    Button {
-                        //
+                    NavigationLink {
+                        LoremApp().navigationBarBackButtonHidden()
                     } label: {
-                        AppView(name: "None")
+                        AppView(name: colorScheme == .dark ? "LoremAppDark" : "LoremApp")
                     }
                 }.padding()
             }
