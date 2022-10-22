@@ -11,6 +11,7 @@ struct GalleryView: View {
     @Environment(\.dismiss) var dismiss
     @State var sliderTapped : Bool = false
     @State var gaugeTapped : Bool = false
+    @State var pictureTapped : Bool = false
     
     var body: some View {
         NavigationView {
@@ -27,7 +28,20 @@ struct GalleryView: View {
                     } label: {
                         AppView(name: "GaugeApp")
                     }
-                }.padding(.horizontal)
+                }.padding()
+                HStack {
+                    Button {
+                        self.pictureTapped.toggle()
+                    } label: {
+                        AppView(name: "PictureApp")
+                    }
+                    Spacer()
+                    Button {
+                        //
+                    } label: {
+                        AppView(name: "None")
+                    }
+                }.padding()
             }
             .padding()
             .toolbar{
@@ -39,11 +53,15 @@ struct GalleryView: View {
                     }
                 }
             }
+            .navigationTitle("Gallery").navigationBarTitleDisplayMode(.inline)
             .fullScreenCover(isPresented: self.$sliderTapped) {
                 SliderApp()
             }
             .fullScreenCover(isPresented: self.$gaugeTapped) {
                 GaugeApp()
+            }
+            .fullScreenCover(isPresented: self.$pictureTapped) {
+                PictureApp()
             }
         }
         

@@ -10,20 +10,31 @@ import SwiftUI
 struct GaugeApp: View {
     @Environment (\.dismiss) var dismiss
     @State var timer : Timer?
+    @State var gameTimer : Timer?
+    @State var gameTime : Int = 0
     @State var currentVal : Double = 0.0
     @State var isStarted : Bool = false
+    @State var isEnded : Bool = false
     let maxVal : Double = 100.0
     let minVal : Double = 0.0
     
     func startTimer() {
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in
-            self.currentVal -= 5.0
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+            self.currentVal -= 0.1
             if currentVal < minVal {currentVal = minVal}
             if currentVal >= maxVal {
                 self.isStarted = false
+                self.isEnded.toggle()
+                self.gameTimer!.invalidate()
                 self.currentVal = minVal
                 self.timer!.invalidate()
             }
+        })
+    }
+    
+    func startGameTimer(){
+        self.gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            self.gameTime += 1
         })
     }
     
@@ -43,11 +54,7 @@ struct GaugeApp: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 200)
                 .padding(.horizontal)
-                if currentVal >= maxVal {
-                    Text("You won!")
-                        .font(.system(size: size / 10, weight: .black, design: .rounded))
-                        .padding(.bottom, 100)
-                }
+                
                 if self.isStarted{
                     Button {
                         self.currentVal += 5.0
@@ -55,15 +62,15 @@ struct GaugeApp: View {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: size / 1.5, height: size / 4)
                             .overlay {
-                                Image(systemName: "xmark")
+                                Image(systemName: "plus")
                                     .foregroundColor(.white)
                                     .font(.system(size: size / 7, weight: .black))
-                                    .rotationEffect(Angle(degrees: 45.0))
                             }
                     }
                 } else {
                     Button {
                         self.isStarted = true
+                        self.startGameTimer()
                         self.startTimer()
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
@@ -85,6 +92,8 @@ struct GaugeApp: View {
 
                 }
             }
+        }.sheet(isPresented: self.$isEnded) {
+            EndgameView(gameTime: self.$gameTime)
         }
 
     }
@@ -93,5 +102,37 @@ struct GaugeApp: View {
 struct GaugeApp_Previews: PreviewProvider {
     static var previews: some View {
         GaugeApp()
+    }
+}
+
+struct EndgameView : View {
+    @Environment (\.dismiss) var dismiss
+    @Binding var gameTime : Int
+    var gameMinutes : Int {return (gameTime % 3600) / 60}
+    var gameSeconds : Int {return gameTime % 60}
+    
+    var body: some View{
+        VStack{
+            VStack {
+                Text("You won!")
+                Text("\(gameMinutes):\(gameSeconds)")
+            }
+            .foregroundColor(.accentColor)
+            .font(.system(size: size / 7, weight: .black, design: .rounded))
+            .padding(.bottom, 200)
+            .padding(.horizontal)
+            
+            Button {
+                dismiss()
+            } label: {
+                RoundedRectangle(cornerRadius: 10)
+                    .frame(width: size / 1.5, height: size / 4)
+                    .overlay {
+                        Text("Try Again")
+                            .foregroundColor(.white)
+                            .font(.system(size: size / 9, weight: .black, design: .rounded))
+                    }
+            }
+        }
     }
 }
