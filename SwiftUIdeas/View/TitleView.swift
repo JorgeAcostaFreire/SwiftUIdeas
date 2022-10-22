@@ -22,8 +22,9 @@ struct TitleView: View {
                 .font(.system(size: size / 5, weight: .black, design: .rounded))
                 .padding()
                 Spacer(minLength: 50)
-                Button {
-                    self.isEnterTapped.toggle()
+                NavigationLink {
+                    //self.isEnterTapped.toggle()
+                    GalleryView().navigationBarBackButtonHidden()
                 } label: {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(height: size / 3)
@@ -36,9 +37,12 @@ struct TitleView: View {
                         .padding(.bottom)
                 }
             }
-        }.fullScreenCover(isPresented: self.$isEnterTapped) {
+        }
+        /*
+        .fullScreenCover(isPresented: self.$isEnterTapped) {
             GalleryView()
         }
+         */
     }
 }
 

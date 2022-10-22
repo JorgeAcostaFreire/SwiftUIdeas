@@ -9,29 +9,26 @@ import SwiftUI
 
 struct GalleryView: View {
     @Environment(\.dismiss) var dismiss
-    @State var sliderTapped : Bool = false
-    @State var gaugeTapped : Bool = false
-    @State var pictureTapped : Bool = false
     
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 HStack {
-                    Button {
-                        self.sliderTapped.toggle()
+                    NavigationLink {
+                        SliderApp().navigationBarBackButtonHidden()
                     } label: {
                         AppView(name: "SliderApp")
                     }
                     Spacer()
-                    Button {
-                        self.gaugeTapped.toggle()
+                    NavigationLink {
+                        GaugeApp().navigationBarBackButtonHidden()
                     } label: {
                         AppView(name: "GaugeApp")
                     }
                 }.padding()
                 HStack {
-                    Button {
-                        self.pictureTapped.toggle()
+                    NavigationLink {
+                        PictureApp().navigationBarBackButtonHidden()
                     } label: {
                         AppView(name: "PictureApp")
                     }
@@ -54,15 +51,6 @@ struct GalleryView: View {
                 }
             }
             .navigationTitle("Gallery").navigationBarTitleDisplayMode(.inline)
-            .fullScreenCover(isPresented: self.$sliderTapped) {
-                SliderApp()
-            }
-            .fullScreenCover(isPresented: self.$gaugeTapped) {
-                GaugeApp()
-            }
-            .fullScreenCover(isPresented: self.$pictureTapped) {
-                PictureApp()
-            }
         }
         
     }
