@@ -11,6 +11,14 @@ struct ChristmasApp: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
     @State var lightsOn : Bool = false
+    @State var timer : Timer?
+    
+    func startTimer(){
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            self.lightsOn.toggle()
+        })
+    }
+    
     var body: some View {
         NavigationView {
             VStack{
