@@ -22,6 +22,7 @@
 		4F2001D529047B0300F03D1A /* CoreTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D229047B0300F03D1A /* CoreTask.xcdatamodeld */; };
 		4F2001D629047B0300F03D1A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D429047B0300F03D1A /* Persistence.swift */; };
 		4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */; };
+		4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D9290538BE00F03D1A /* ChristmasApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		4F2001D329047B0300F03D1A /* CoreTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreTask.xcdatamodel; sourceTree = "<group>"; };
 		4F2001D429047B0300F03D1A /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTaskApp.swift; sourceTree = "<group>"; };
+		4F2001D9290538BE00F03D1A /* ChristmasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				4F1D9798290442570064515A /* LoremApp.swift */,
 				4F2001D02904785900F03D1A /* FruitApp.swift */,
 				4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */,
+				4F2001D9290538BE00F03D1A /* ChristmasApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
 				4F1D97932902F7240064515A /* SliderApp.swift in Sources */,
 				4F1D977C2902E5760064515A /* ContentView.swift in Sources */,
+				4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */,
 				4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */,
 				4F1D977A2902E5760064515A /* SwiftUIdeasApp.swift in Sources */,
 				4F1D97882902E6DF0064515A /* Constants.swift in Sources */,

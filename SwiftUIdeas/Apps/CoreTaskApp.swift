@@ -64,14 +64,6 @@ struct CoreTaskApp: View {
                             .foregroundColor(.white)
                     }
                     EditButton().buttonStyle(EditButtonStyle())
-                    /*
-                        .fontWeight(.semibold)
-                        .font(.title2)
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
-                        .background(in: Capsule().stroke(lineWidth: 4))
-                    */
-                     
                 }.padding(.horizontal)
                 List {
                     ForEach(items) { item in
@@ -129,7 +121,7 @@ struct TaskView: View {
     
     var body: some View {
         VStack {
-            Spacer()
+            //Spacer()
             VStack(spacing : 16){
                 TextField("", text: self.$task)
                     .padding()

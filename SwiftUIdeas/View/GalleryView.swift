@@ -56,6 +56,19 @@ struct GalleryView: View {
                         AppView(name: "TaskApp")
                     }
                 }.padding()
+                HStack {
+                    NavigationLink {
+                        ChristmasApp().navigationBarBackButtonHidden()
+                    } label: {
+                        AppView(name: colorScheme == .dark ? "ChristmasApp" : "ChristmasAppDark")
+                    }
+                    Spacer()
+                    NavigationLink {
+                        //
+                    } label: {
+                        AppView(name: "None")
+                    }
+                }.padding()
             }
             .padding()
             .toolbar{
