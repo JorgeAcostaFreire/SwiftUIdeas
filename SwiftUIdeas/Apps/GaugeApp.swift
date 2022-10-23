@@ -27,7 +27,7 @@ struct GaugeApp: View {
                 self.isStarted = false
                 self.isEnded.toggle()
                 self.gameTimer!.invalidate()
-                self.currentVal = minVal
+                self.currentVal = minVal + 0.1
                 self.timer!.invalidate()
             }
         })
@@ -72,6 +72,8 @@ struct GaugeApp: View {
                 } else {
                     Button {
                         self.isStarted = true
+                        self.taps = 0
+                        self.gameTime = 0
                         self.startGameTimer()
                         self.startTimer()
                     } label: {

@@ -18,6 +18,10 @@
 		4F1D9795290317CB0064515A /* GaugeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D9794290317CB0064515A /* GaugeApp.swift */; };
 		4F1D9797290341070064515A /* PictureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D9796290341070064515A /* PictureApp.swift */; };
 		4F1D9799290442570064515A /* LoremApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D9798290442570064515A /* LoremApp.swift */; };
+		4F2001D12904785900F03D1A /* FruitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D02904785900F03D1A /* FruitApp.swift */; };
+		4F2001D529047B0300F03D1A /* CoreTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D229047B0300F03D1A /* CoreTask.xcdatamodeld */; };
+		4F2001D629047B0300F03D1A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D429047B0300F03D1A /* Persistence.swift */; };
+		4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		4F1D9794290317CB0064515A /* GaugeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeApp.swift; sourceTree = "<group>"; };
 		4F1D9796290341070064515A /* PictureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureApp.swift; sourceTree = "<group>"; };
 		4F1D9798290442570064515A /* LoremApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoremApp.swift; sourceTree = "<group>"; };
+		4F2001D02904785900F03D1A /* FruitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitApp.swift; sourceTree = "<group>"; };
+		4F2001D329047B0300F03D1A /* CoreTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreTask.xcdatamodel; sourceTree = "<group>"; };
+		4F2001D429047B0300F03D1A /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTaskApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +104,8 @@
 		4F1D978A2902E96D0064515A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F2001D229047B0300F03D1A /* CoreTask.xcdatamodeld */,
+				4F2001D429047B0300F03D1A /* Persistence.swift */,
 				4F1D97872902E6DF0064515A /* Constants.swift */,
 			);
 			path = Model;
@@ -108,6 +118,8 @@
 				4F1D9794290317CB0064515A /* GaugeApp.swift */,
 				4F1D9796290341070064515A /* PictureApp.swift */,
 				4F1D9798290442570064515A /* LoremApp.swift */,
+				4F2001D02904785900F03D1A /* FruitApp.swift */,
+				4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -186,10 +198,14 @@
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
 				4F1D97932902F7240064515A /* SliderApp.swift in Sources */,
 				4F1D977C2902E5760064515A /* ContentView.swift in Sources */,
+				4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */,
 				4F1D977A2902E5760064515A /* SwiftUIdeasApp.swift in Sources */,
 				4F1D97882902E6DF0064515A /* Constants.swift in Sources */,
 				4F1D978C2902E9920064515A /* TitleView.swift in Sources */,
 				4F1D9795290317CB0064515A /* GaugeApp.swift in Sources */,
+				4F2001D529047B0300F03D1A /* CoreTask.xcdatamodeld in Sources */,
+				4F2001D629047B0300F03D1A /* Persistence.swift in Sources */,
+				4F2001D12904785900F03D1A /* FruitApp.swift in Sources */,
 				4F1D978E2902E9C90064515A /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +338,8 @@
 				DEVELOPMENT_TEAM = 7TYX58WJ69;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ideas;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +369,8 @@
 				DEVELOPMENT_TEAM = 7TYX58WJ69;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Ideas;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -391,6 +411,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4F2001D229047B0300F03D1A /* CoreTask.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4F2001D329047B0300F03D1A /* CoreTask.xcdatamodel */,
+			);
+			currentVersion = 4F2001D329047B0300F03D1A /* CoreTask.xcdatamodel */;
+			path = CoreTask.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4F1D976E2902E5760064515A /* Project object */;
 }

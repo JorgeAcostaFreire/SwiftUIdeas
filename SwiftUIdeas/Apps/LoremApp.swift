@@ -71,7 +71,7 @@ struct LoremApp: View {
                                     .font(.system(size: size / 8, weight: .bold, design: .rounded))
                             }
                     }
-                }.frame(height: 250)
+                }.frame(height: 280)
             }.toolbar{
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {

@@ -10,6 +10,7 @@ import SwiftUI
 struct GalleryView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
+    let persistenceController = PersistenceController.shared
     
     var body: some View {
         NavigationView {
@@ -38,6 +39,21 @@ struct GalleryView: View {
                         LoremApp().navigationBarBackButtonHidden()
                     } label: {
                         AppView(name: colorScheme == .dark ? "LoremAppDark" : "LoremApp")
+                    }
+                }.padding()
+                HStack {
+                    NavigationLink {
+                        FruitApp().navigationBarBackButtonHidden()
+                    } label: {
+                        AppView(name: colorScheme == .dark ? "StackNavDark" : "StackNav")
+                    }
+                    Spacer()
+                    NavigationLink {
+                        CoreTaskApp()
+                            .navigationBarBackButtonHidden()
+                            .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    } label: {
+                        AppView(name: "TaskApp")
                     }
                 }.padding()
             }

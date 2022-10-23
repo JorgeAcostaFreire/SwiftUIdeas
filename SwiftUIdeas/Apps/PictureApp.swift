@@ -10,7 +10,7 @@ import PhotosUI
 
 struct PictureApp: View {
     @Environment (\.dismiss) var dismiss
-    @StateObject var viewModel = ProfileModel()
+    @StateObject var viewModel = PictureModel()
     
     var body: some View {
         NavigationView {
@@ -37,7 +37,7 @@ struct PictureApp_Previews: PreviewProvider {
     }
 }
 
-class ProfileModel: ObservableObject {
+class PictureModel: ObservableObject {
     // MARK: - Profile Image
     
     enum ImageState {
@@ -51,7 +51,7 @@ class ProfileModel: ObservableObject {
         case importFailed
     }
     
-    struct ProfileImage: Transferable {
+    struct FrameImage: Transferable {
         let image: Image
         
         static var transferRepresentation: some TransferRepresentation {
@@ -67,7 +67,7 @@ class ProfileModel: ObservableObject {
                     throw TransferError.importFailed
                 }
                 let image = Image(uiImage: uiImage)
-                return ProfileImage(image: image)
+                return FrameImage(image: image)
             #else
                 throw TransferError.importFailed
             #endif
@@ -91,7 +91,7 @@ class ProfileModel: ObservableObject {
     // MARK: - Private Methods
     
     private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
-        return imageSelection.loadTransferable(type: ProfileImage.self) { result in
+        return imageSelection.loadTransferable(type: FrameImage.self) { result in
             DispatchQueue.main.async {
                 guard imageSelection == self.imageSelection else {
                     print("Failed to get the selected item.")
@@ -111,7 +111,7 @@ class ProfileModel: ObservableObject {
 }
 
 struct ProfileImage: View {
-    let imageState: ProfileModel.ImageState
+    let imageState: PictureModel.ImageState
     
     var body: some View {
         switch imageState {
@@ -132,7 +132,7 @@ struct ProfileImage: View {
 }
 
 struct CircularProfileImage: View {
-    let imageState: ProfileModel.ImageState
+    let imageState: PictureModel.ImageState
     
     var body: some View {
         ProfileImage(imageState: imageState)
@@ -153,7 +153,7 @@ struct CircularProfileImage: View {
 }
 
 struct EditableCircularProfileImage: View {
-    @ObservedObject var viewModel: ProfileModel
+    @ObservedObject var viewModel: PictureModel
     @State var isYFlipped : Bool = false
     @State var isXFlipped : Bool = false
     
