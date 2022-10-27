@@ -186,7 +186,7 @@ struct ConverterApp: View {
                 } label: {
                     Image(systemName: "arrow.left")
                         .foregroundColor(.green)
-                        .fontWeight(.bold)
+                        .fontWeight(.black)
                 }
             }
         }

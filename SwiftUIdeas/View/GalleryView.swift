@@ -66,7 +66,7 @@ struct GalleryView: View {
                     NavigationLink {
                         ConverterApp().navigationBarBackButtonHidden()
                     } label: {
-                        AppView(name: "ConverterApp")
+                        AppView(name: colorScheme == .dark ? "ConverterAppDark" : "ConverterApp")
                     }
                 }.padding()
             }
