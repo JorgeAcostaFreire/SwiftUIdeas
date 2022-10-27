@@ -64,9 +64,9 @@ struct GalleryView: View {
                     }
                     Spacer()
                     NavigationLink {
-                        //
+                        ConverterApp().navigationBarBackButtonHidden()
                     } label: {
-                        AppView(name: "None")
+                        AppView(name: "ConverterApp")
                     }
                 }.padding()
             }

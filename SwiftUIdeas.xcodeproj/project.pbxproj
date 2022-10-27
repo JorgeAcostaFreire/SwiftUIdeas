@@ -23,6 +23,8 @@
 		4F2001D629047B0300F03D1A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D429047B0300F03D1A /* Persistence.swift */; };
 		4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */; };
 		4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D9290538BE00F03D1A /* ChristmasApp.swift */; };
+		4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA738A229099A4000CD56B5 /* ConverterApp.swift */; };
+		4FA738A629099AE700CD56B5 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,9 @@
 		4F2001D429047B0300F03D1A /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTaskApp.swift; sourceTree = "<group>"; };
 		4F2001D9290538BE00F03D1A /* ChristmasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasApp.swift; sourceTree = "<group>"; };
+		4FA738A229099A4000CD56B5 /* ConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterApp.swift; sourceTree = "<group>"; };
+		4FA738A429099A8C00CD56B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 		4F1D97782902E5760064515A /* SwiftUIdeas */ = {
 			isa = PBXGroup;
 			children = (
+				4FA738A429099A8C00CD56B5 /* Info.plist */,
 				4F1D97792902E5760064515A /* SwiftUIdeasApp.swift */,
 				4F1D977B2902E5760064515A /* ContentView.swift */,
 				4F1D97912902F7080064515A /* Apps */,
@@ -106,6 +112,7 @@
 		4F1D978A2902E96D0064515A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */,
 				4F2001D229047B0300F03D1A /* CoreTask.xcdatamodeld */,
 				4F2001D429047B0300F03D1A /* Persistence.swift */,
 				4F1D97872902E6DF0064515A /* Constants.swift */,
@@ -123,6 +130,7 @@
 				4F2001D02904785900F03D1A /* FruitApp.swift */,
 				4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */,
 				4F2001D9290538BE00F03D1A /* ChristmasApp.swift */,
+				4FA738A229099A4000CD56B5 /* ConverterApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -185,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA738A629099AE700CD56B5 /* PressStart2P-Regular.ttf in Resources */,
 				4F1D97812902E5770064515A /* Preview Assets.xcassets in Resources */,
 				4F1D977E2902E5770064515A /* Assets.xcassets in Resources */,
 			);
@@ -197,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */,
 				4F1D9799290442570064515A /* LoremApp.swift in Sources */,
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
 				4F1D97932902F7240064515A /* SliderApp.swift in Sources */,
@@ -342,6 +352,7 @@
 				DEVELOPMENT_TEAM = 7TYX58WJ69;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIdeas/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ideas;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -373,6 +384,7 @@
 				DEVELOPMENT_TEAM = 7TYX58WJ69;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUIdeas/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Ideas;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
