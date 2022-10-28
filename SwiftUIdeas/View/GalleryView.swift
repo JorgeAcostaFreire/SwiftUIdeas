@@ -69,6 +69,19 @@ struct GalleryView: View {
                         AppView(name: colorScheme == .dark ? "ConverterAppDark" : "ConverterApp")
                     }
                 }.padding()
+                HStack {
+                    NavigationLink {
+                        WikiApp().navigationBarBackButtonHidden()
+                    } label: {
+                        AppView(name: "WikiApp")
+                    }
+                    Spacer()
+                    NavigationLink {
+                        //
+                    } label: {
+                        AppView(name: "None")
+                    }
+                }.padding()
             }
             .padding()
             .toolbar{
