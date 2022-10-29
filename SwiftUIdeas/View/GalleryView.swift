@@ -77,9 +77,9 @@ struct GalleryView: View {
                     }
                     Spacer()
                     NavigationLink {
-                        //
+                        GitApp().navigationBarBackButtonHidden()
                     } label: {
-                        AppView(name: "None")
+                        AppView(name: colorScheme == .dark ? "GitAppDark" : "GitApp")
                     }
                 }.padding()
             }

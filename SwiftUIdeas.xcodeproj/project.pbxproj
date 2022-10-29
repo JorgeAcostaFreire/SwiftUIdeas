@@ -24,6 +24,7 @@
 		4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */; };
 		4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D9290538BE00F03D1A /* ChristmasApp.swift */; };
 		4F9B4CEE290C590400133EE7 /* WikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CED290C590400133EE7 /* WikiApp.swift */; };
+		4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CEF290C62CA00133EE7 /* GitApp.swift */; };
 		4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA738A229099A4000CD56B5 /* ConverterApp.swift */; };
 		4FA738A629099AE700CD56B5 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTaskApp.swift; sourceTree = "<group>"; };
 		4F2001D9290538BE00F03D1A /* ChristmasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasApp.swift; sourceTree = "<group>"; };
 		4F9B4CED290C590400133EE7 /* WikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiApp.swift; sourceTree = "<group>"; };
+		4F9B4CEF290C62CA00133EE7 /* GitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApp.swift; sourceTree = "<group>"; };
 		4FA738A229099A4000CD56B5 /* ConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterApp.swift; sourceTree = "<group>"; };
 		4FA738A429099A8C00CD56B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				4F2001D9290538BE00F03D1A /* ChristmasApp.swift */,
 				4FA738A229099A4000CD56B5 /* ConverterApp.swift */,
 				4F9B4CED290C590400133EE7 /* WikiApp.swift */,
+				4F9B4CEF290C62CA00133EE7 /* GitApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */,
 				4F1D9799290442570064515A /* LoremApp.swift in Sources */,
+				4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */,
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
 				4F1D97932902F7240064515A /* SliderApp.swift in Sources */,
 				4F1D977C2902E5760064515A /* ContentView.swift in Sources */,
