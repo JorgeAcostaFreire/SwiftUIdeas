@@ -82,6 +82,19 @@ struct GalleryView: View {
                         AppView(name: colorScheme == .dark ? "GitAppDark" : "GitApp")
                     }
                 }.padding()
+                HStack {
+                    NavigationLink {
+                        CurrencyApp().navigationBarBackButtonHidden()
+                    } label: {
+                        AppView(name: "CurrencyApp")
+                    }
+                    Spacer()
+                    NavigationLink {
+                        //
+                    } label: {
+                        AppView(name: "None")
+                    }
+                }.padding()
             }
             .padding()
             .toolbar{
@@ -93,6 +106,7 @@ struct GalleryView: View {
                     }
                 }
             }
+            .navigationTitle("Gallery")
         }
         
     }

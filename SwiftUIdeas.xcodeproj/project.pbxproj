@@ -25,6 +25,7 @@
 		4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D9290538BE00F03D1A /* ChristmasApp.swift */; };
 		4F9B4CEE290C590400133EE7 /* WikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CED290C590400133EE7 /* WikiApp.swift */; };
 		4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CEF290C62CA00133EE7 /* GitApp.swift */; };
+		4F9B4CF2290D950700133EE7 /* CurrencyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */; };
 		4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA738A229099A4000CD56B5 /* ConverterApp.swift */; };
 		4FA738A629099AE700CD56B5 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		4F2001D9290538BE00F03D1A /* ChristmasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasApp.swift; sourceTree = "<group>"; };
 		4F9B4CED290C590400133EE7 /* WikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiApp.swift; sourceTree = "<group>"; };
 		4F9B4CEF290C62CA00133EE7 /* GitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApp.swift; sourceTree = "<group>"; };
+		4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyApp.swift; sourceTree = "<group>"; };
 		4FA738A229099A4000CD56B5 /* ConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterApp.swift; sourceTree = "<group>"; };
 		4FA738A429099A8C00CD56B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				4FA738A229099A4000CD56B5 /* ConverterApp.swift */,
 				4F9B4CED290C590400133EE7 /* WikiApp.swift */,
 				4F9B4CEF290C62CA00133EE7 /* GitApp.swift */,
+				4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				4F1D9795290317CB0064515A /* GaugeApp.swift in Sources */,
 				4F2001D529047B0300F03D1A /* CoreTask.xcdatamodeld in Sources */,
 				4F2001D629047B0300F03D1A /* Persistence.swift in Sources */,
+				4F9B4CF2290D950700133EE7 /* CurrencyApp.swift in Sources */,
 				4F9B4CEE290C590400133EE7 /* WikiApp.swift in Sources */,
 				4F2001D12904785900F03D1A /* FruitApp.swift in Sources */,
 				4F1D978E2902E9C90064515A /* GalleryView.swift in Sources */,
