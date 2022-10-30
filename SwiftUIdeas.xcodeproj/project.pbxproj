@@ -23,6 +23,7 @@
 		4F2001D629047B0300F03D1A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D429047B0300F03D1A /* Persistence.swift */; };
 		4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */; };
 		4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2001D9290538BE00F03D1A /* ChristmasApp.swift */; };
+		4F790BE9290EEEC20006E52D /* FlagQuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F790BE8290EEEC20006E52D /* FlagQuizApp.swift */; };
 		4F9B4CEE290C590400133EE7 /* WikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CED290C590400133EE7 /* WikiApp.swift */; };
 		4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CEF290C62CA00133EE7 /* GitApp.swift */; };
 		4F9B4CF2290D950700133EE7 /* CurrencyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */; };
@@ -48,6 +49,7 @@
 		4F2001D429047B0300F03D1A /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		4F2001D729047B4E00F03D1A /* CoreTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreTaskApp.swift; sourceTree = "<group>"; };
 		4F2001D9290538BE00F03D1A /* ChristmasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChristmasApp.swift; sourceTree = "<group>"; };
+		4F790BE8290EEEC20006E52D /* FlagQuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagQuizApp.swift; sourceTree = "<group>"; };
 		4F9B4CED290C590400133EE7 /* WikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiApp.swift; sourceTree = "<group>"; };
 		4F9B4CEF290C62CA00133EE7 /* GitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitApp.swift; sourceTree = "<group>"; };
 		4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyApp.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				4F9B4CED290C590400133EE7 /* WikiApp.swift */,
 				4F9B4CEF290C62CA00133EE7 /* GitApp.swift */,
 				4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */,
+				4F790BE8290EEEC20006E52D /* FlagQuizApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				4F1D9799290442570064515A /* LoremApp.swift in Sources */,
 				4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */,
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
+				4F790BE9290EEEC20006E52D /* FlagQuizApp.swift in Sources */,
 				4F1D97932902F7240064515A /* SliderApp.swift in Sources */,
 				4F1D977C2902E5760064515A /* ContentView.swift in Sources */,
 				4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */,

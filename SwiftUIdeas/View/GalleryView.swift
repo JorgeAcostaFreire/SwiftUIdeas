@@ -90,9 +90,9 @@ struct GalleryView: View {
                     }
                     Spacer()
                     NavigationLink {
-                        //
+                        FlagQuizApp().navigationBarBackButtonHidden()
                     } label: {
-                        AppView(name: "None")
+                        AppView(name: "FlagQuizApp")
                     }
                 }.padding()
             }
