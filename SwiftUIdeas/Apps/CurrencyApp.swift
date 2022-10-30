@@ -20,8 +20,7 @@ struct CurrencyApp: View {
     func fetchSymbols() async {
         guard let url = URL(string: "https://api.apilayer.com/exchangerates_data/symbols?apikey=\(api_key)") else {return}
         do{
-            let (data, response) = try await URLSession.shared.data(from: url)
-            print(response)
+            let (data, _) = try await URLSession.shared.data(from: url)
             let item = try JSONDecoder().decode(Symbol.self, from: data)
             self.symbol = item
         } catch {
@@ -32,8 +31,7 @@ struct CurrencyApp: View {
     func fetchResult() async {
         guard let url = URL(string: "https://api.apilayer.com/exchangerates_data/convert?to=\(finalKey)&from=\(baseKey)&amount=\(quantity)&apikey=\(api_key)") else {return}
         do {
-            let (data, response) = try await URLSession.shared.data(from: url)
-            print(response)
+            let (data, _) = try await URLSession.shared.data(from: url)
             let item = try JSONDecoder().decode(Exchange.self, from: data)
             self.exchange = item
         } catch {
@@ -43,52 +41,52 @@ struct CurrencyApp: View {
     
     var body: some View {
         NavigationView {
-                VStack(spacing : 80){
-                    if let symbolsDicc = self.symbol?.symbols{
-                        VStack(spacing : 20){
-                            Picker("", selection: self.$baseKey) {
-                                ForEach(symbolsDicc.keys.sorted(), id: \.self) { key in
-                                    Text(symbolsDicc[key]!)
-                                }
+            VStack(spacing : 80){
+                if let symbolsDicc = self.symbol?.symbols{
+                    VStack(spacing : 20){
+                        Picker("", selection: self.$baseKey) {
+                            ForEach(symbolsDicc.keys.sorted(), id: \.self) { key in
+                                Text(symbolsDicc[key]!)
                             }
-                            Image(systemName: "arrow.down").fontWeight(.bold).font(.system(.title))
-                            Picker("", selection: self.$finalKey) {
-                                ForEach(symbolsDicc.keys.sorted(), id: \.self) { key in
-                                    Text(symbolsDicc[key]!)
-                                }
+                        }
+                        Image(systemName: "arrow.down").fontWeight(.bold).font(.system(.title))
+                        Picker("", selection: self.$finalKey) {
+                            ForEach(symbolsDicc.keys.sorted(), id: \.self) { key in
+                                Text(symbolsDicc[key]!)
                             }
                         }
                     }
-                    HStack(spacing : 50){
-                        Button {
-                            self.quantity -= 1
-                        } label: {
-                            Image(systemName: "minus.square.fill")
-                        }.disabled(self.quantity < 1)
-                        Text("\(self.quantity)")
-                        Button {
-                            self.quantity += 1
-                        } label: {
-                            Image(systemName: "plus.square.fill")
-                        }
-                    }.font(.system(.largeTitle, design: .rounded, weight: .bold))
+                }
+                HStack(spacing : 50){
                     Button {
-                        Task{
-                            await fetchResult()
-                        }
+                        self.quantity -= 1
                     } label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .padding()
-                            .frame(height: 100)
-                            .overlay{
-                                Image(systemName: "arrow.2.squarepath")
-                                    .foregroundColor(.white)
-                                    .font(.system(.title, design: .rounded, weight: .bold))
-                            }
+                        Image(systemName: "minus.square.fill")
+                    }.disabled(self.quantity < 1)
+                    Text("\(self.quantity)")
+                    Button {
+                        self.quantity += 1
+                    } label: {
+                        Image(systemName: "plus.square.fill")
                     }
-                    if let exchange = self.exchange{
-                        ExchangeView(exchange: exchange, baseCurrency: baseKey, destinationCurrency: finalKey, baseAmount: quantity)
+                }.font(.system(.largeTitle, design: .rounded, weight: .bold))
+                Button {
+                    Task{
+                        await fetchResult()
                     }
+                } label: {
+                    RoundedRectangle(cornerRadius: 10)
+                        .padding()
+                        .frame(height: 100)
+                        .overlay{
+                            Image(systemName: "arrow.2.squarepath")
+                                .foregroundColor(.white)
+                                .font(.system(.title, design: .rounded, weight: .bold))
+                        }
+                }
+                if let exchange = self.exchange{
+                    ExchangeView(exchange: exchange, baseCurrency: baseKey, destinationCurrency: finalKey, baseAmount: quantity)
+                }
             }
             .task {
                 await fetchSymbols()
@@ -103,7 +101,6 @@ struct CurrencyApp: View {
                     }
                 }
             }
-
         }
     }
 }
