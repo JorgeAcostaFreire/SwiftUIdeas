@@ -14,6 +14,7 @@ struct CurrencyApp: View {
     @State var baseKey : String = ""
     @State var finalKey : String = ""
     @State var quantity : Int = 0
+    @State var isConversionRequested : Bool = false
     
     private let api_key : String = "fMpPFVNIytmCsAwpFyvMiahiRPNL7JU5"
     
@@ -37,6 +38,7 @@ struct CurrencyApp: View {
         } catch {
             print(error)
         }
+        self.isConversionRequested = false
     }
     
     var body: some View {
@@ -56,6 +58,8 @@ struct CurrencyApp: View {
                             }
                         }
                     }
+                } else {
+                    ProgressView()
                 }
                 HStack(spacing : 50){
                     Button {
@@ -71,6 +75,7 @@ struct CurrencyApp: View {
                     }
                 }.font(.system(.largeTitle, design: .rounded, weight: .bold))
                 Button {
+                    self.isConversionRequested = true
                     Task{
                         await fetchResult()
                     }
@@ -86,6 +91,8 @@ struct CurrencyApp: View {
                 }
                 if let exchange = self.exchange{
                     ExchangeView(exchange: exchange, baseCurrency: baseKey, destinationCurrency: finalKey, baseAmount: quantity)
+                } else if self.isConversionRequested{
+                    ProgressView()
                 }
             }
             .task {
