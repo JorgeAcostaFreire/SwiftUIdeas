@@ -82,13 +82,6 @@ struct GitComponent : Codable {
     let id : String
     let name : String
     let status : String
-    /*
-    let created_at : String
-    let updated_at : String
-    let position : Int
-    let description : String
-    let showcase : Bool
-     */
 }
 
 struct GitResult : Codable {
