@@ -9,13 +9,38 @@ import SwiftUI
 
 struct FlagQuizApp: View {
     @Environment(\.dismiss) var dismiss
+    
     @State var countries : [Country] = []
+    @State var options : [Country] = []
     @State var selectedCountry : Country?
     @State var firstCountry : Country?
     @State var secondCountry : Country?
+    @State var resultColor : Color = Color(.systemGray5)
+    @State var isTapped1 : Bool = false
+    @State var isTapped2 : Bool = false
+    @State var isTapped3 : Bool = false
+    
+    
+    func checkCountry(country : Country) async {
+        if country == self.selectedCountry{
+            self.resultColor = .green
+        } else {
+            self.resultColor = .red
+        }
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+        self.isTapped1 = false
+        self.isTapped2 = false
+        self.isTapped3 = false
+        self.resultColor = Color(.systemGray5)
+        selectNewCountry()
+        selectCountries()
+        self.options.removeSubrange(0...2)
+        self.options.shuffle()
+    }
     
     func selectNewCountry() {
         self.selectedCountry = self.countries[Int.random(in: 0..<self.countries.count)]
+        self.options.append(self.selectedCountry!)
     }
     
     func selectCountries(){
@@ -27,6 +52,8 @@ struct FlagQuizApp: View {
             countries.firstIndex(of: selectedCountry!) != secondRandom {
             self.firstCountry = countries[firstRandom]
             self.secondCountry = countries[secondRandom]
+            self.options.append(self.firstCountry!)
+            self.options.append(self.secondCountry!)
         } else {
             selectCountries()
         }
@@ -40,6 +67,7 @@ struct FlagQuizApp: View {
             self.countries = item
             self.selectNewCountry()
             self.selectCountries()
+            self.options.shuffle()
         } catch {
             print(error)
         }
@@ -48,30 +76,41 @@ struct FlagQuizApp: View {
     var body: some View {
         NavigationView{
             VStack{
-                Spacer()
-                if let country = self.selectedCountry, let first = self.firstCountry, let sec = self.secondCountry {
-                    VStack (spacing : 30) {
-                        AsyncImage(url: URL(string: country.flags.png))
-                        Text(country.name.common)
-                        Text(first.name.common)
-                        Text(sec.name.common)
+                if let options = self.options, let country = self.selectedCountry{
+                    VStack (spacing : 10) {
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 10).frame(width: 350, height: 250).foregroundColor(Color(.systemGray5)).overlay{
+                            AsyncImage(url: URL(string: country.flags.png))
+                        }
+                        Spacer()
+                        Button {
+                            self.isTapped1 = true
+                            Task{
+                                await checkCountry(country: options[0])
+                            }
+                        } label: {
+                            ButtonView(countryName: options[0].name.common, color: self.resultColor, isTapped: self.$isTapped1)
+                        }
+                        Button {
+                            self.isTapped2 = true
+                            Task{
+                                await checkCountry(country: options[1])
+                            }
+                        } label: {
+                            ButtonView(countryName: options[1].name.common, color: self.resultColor, isTapped: self.$isTapped2)
+                        }
+                        Button {
+                            self.isTapped3 = true
+                            Task{
+                                await checkCountry(country: options[2])
+                            }
+                        } label: {
+                            ButtonView(countryName: options[2].name.common, color: self.resultColor, isTapped: self.$isTapped3)
+                        }
+
                     }.padding(.vertical)
                 } else {
                     ProgressView()
-                }
-                Spacer()
-                Button {
-                    selectNewCountry()
-                    selectCountries()
-                } label: {
-                    RoundedRectangle(cornerRadius: 10)
-                        .padding()
-                        .frame(height: 100)
-                        .overlay{
-                            Image(systemName: "arrow.2.squarepath")
-                                .foregroundColor(.white)
-                                .font(.system(.title, design: .rounded, weight: .bold))
-                        }
                 }
             }
             .padding()
@@ -95,6 +134,30 @@ struct FlagQuizApp: View {
 struct FlagQuizApp_Previews: PreviewProvider {
     static var previews: some View {
         FlagQuizApp()
+    }
+}
+
+
+
+struct ButtonView : View {
+    @Environment(\.colorScheme) var colorScheme
+    var countryName : String
+    var color : Color
+    @Binding var isTapped : Bool
+    
+    var body: some View{
+        RoundedRectangle(cornerRadius: 10)
+            .foregroundColor(.clear)
+            .padding()
+            .frame(height: 100)
+            .background(content: {
+                RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 5).foregroundColor(isTapped ? color : Color(.systemGray5)).padding()
+            })
+            .overlay{
+                Text(countryName)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .font(.system(.title, design: .rounded, weight: .bold))
+            }
     }
 }
 
