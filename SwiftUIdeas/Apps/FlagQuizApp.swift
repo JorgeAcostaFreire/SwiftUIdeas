@@ -76,39 +76,42 @@ struct FlagQuizApp: View {
     var body: some View {
         NavigationView{
             VStack{
-                if let options = self.options, let country = self.selectedCountry{
-                    VStack (spacing : 10) {
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 10).frame(width: 350, height: 250).foregroundColor(Color(.systemGray5)).overlay{
-                            AsyncImage(url: URL(string: country.flags.png))
-                        }
-                        Spacer()
-                        Button {
-                            self.isTapped1 = true
-                            Task{
-                                await checkCountry(country: options[0])
+                if self.options.count == 3 {
+                    if let country = self.selectedCountry{
+                        VStack (spacing : 10) {
+                            Spacer()
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(Color(.systemGray6))
+                                .overlay{
+                                AsyncImage(url: URL(string: country.flags.png))
+                                }
+                            Spacer()
+                            Button {
+                                self.isTapped1 = true
+                                Task{
+                                    await checkCountry(country: options[0])
+                                }
+                            } label: {
+                                ButtonView(countryName: self.options[0].name.common, color: self.resultColor, isTapped: self.$isTapped1)
                             }
-                        } label: {
-                            ButtonView(countryName: options[0].name.common, color: self.resultColor, isTapped: self.$isTapped1)
-                        }
-                        Button {
-                            self.isTapped2 = true
-                            Task{
-                                await checkCountry(country: options[1])
+                            Button {
+                                self.isTapped2 = true
+                                Task{
+                                    await checkCountry(country: options[1])
+                                }
+                            } label: {
+                                ButtonView(countryName: self.options[1].name.common, color: self.resultColor, isTapped: self.$isTapped2)
                             }
-                        } label: {
-                            ButtonView(countryName: options[1].name.common, color: self.resultColor, isTapped: self.$isTapped2)
-                        }
-                        Button {
-                            self.isTapped3 = true
-                            Task{
-                                await checkCountry(country: options[2])
+                            Button {
+                                self.isTapped3 = true
+                                Task{
+                                    await checkCountry(country: options[2])
+                                }
+                            } label: {
+                                ButtonView(countryName: self.options[2].name.common, color: self.resultColor, isTapped: self.$isTapped3)
                             }
-                        } label: {
-                            ButtonView(countryName: options[2].name.common, color: self.resultColor, isTapped: self.$isTapped3)
                         }
-
-                    }.padding(.vertical)
+                    }
                 } else {
                     ProgressView()
                 }
@@ -151,12 +154,15 @@ struct ButtonView : View {
             .padding()
             .frame(height: 100)
             .background(content: {
-                RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 5).foregroundColor(isTapped ? color : Color(.systemGray5)).padding()
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(lineWidth: 7)
+                    .foregroundColor(isTapped ? color : Color(.systemGray5))
             })
             .overlay{
                 Text(countryName)
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     .font(.system(.title, design: .rounded, weight: .bold))
+                    .padding(.horizontal, 5)
             }
     }
 }
