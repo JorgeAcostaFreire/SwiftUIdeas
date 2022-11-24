@@ -9,25 +9,38 @@ import SwiftUI
 
 struct FruitApp: View {
     @Environment (\.dismiss) var dismiss
+    @State var path : [Fruit] = []
     var body: some View {
         NavigationStack {
-            List {
-                Section {
-                    ForEach(Fruit.allCases) { fruit in
-                        NavigationLink(fruit.name, value: fruit)
+            VStack {
+                List {
+                    Section {
+                        ForEach(Fruit.allCases) { fruit in
+                            NavigationLink(fruit.name, value: fruit)
+                        }
+                    } header: {Text("Fruits").bold()}
+                    HStack{
+                        ForEach(path, id: \.self) { fruit in
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(fruit.color)
+                                .overlay {
+                                    Text(fruit.rawValue)
+                                }
+                        }
                     }
-                } header: {Text("Fruits").bold()}
-            }
-            .frame(height: size)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationDestination(for: Fruit.self) { fruit in
-                FruitView(fruit: fruit).navigationBarBackButtonHidden()
-            }.toolbar{
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "arrow.left")
+                }
+                .frame(height: size)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(for: Fruit.self) { fruit in
+                    FruitView(fruit: fruit).navigationBarBackButtonHidden()
+                        .onDisappear{self.path.append(fruit)}
+                }.toolbar{
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "arrow.left")
+                        }
                     }
                 }
             }
@@ -35,6 +48,9 @@ struct FruitApp: View {
             Image(systemName: "leaf.fill")
                 .font(.system(size: size / 2, weight: .black))
                 .foregroundColor(.green)
+                .onTapGesture {
+                    path = .init()
+                }
             Spacer()
         }
     }
@@ -57,7 +73,7 @@ struct FruitView: View {
                 Spacer()
                 VStack {
                     Text(self.fruit.rawValue)
-                        .font(.system(size: size / 4))
+                        .font(.system(.title))
                         .padding(.bottom)
                     Text(self.fruit.name)
                 }

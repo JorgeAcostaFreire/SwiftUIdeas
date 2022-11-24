@@ -29,6 +29,7 @@
 		4F9B4CF2290D950700133EE7 /* CurrencyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */; };
 		4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA738A229099A4000CD56B5 /* ConverterApp.swift */; };
 		4FA738A629099AE700CD56B5 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */; };
+		4FEB03FC2915C85D0023A18F /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		4FA738A229099A4000CD56B5 /* ConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterApp.swift; sourceTree = "<group>"; };
 		4FA738A429099A8C00CD56B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
+		4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				4F9B4CEF290C62CA00133EE7 /* GitApp.swift */,
 				4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */,
 				4F790BE8290EEEC20006E52D /* FlagQuizApp.swift */,
+				4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */,
+				4FEB03FC2915C85D0023A18F /* CalculatorApp.swift in Sources */,
 				4F1D9799290442570064515A /* LoremApp.swift in Sources */,
 				4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */,
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
