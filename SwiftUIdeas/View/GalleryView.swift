@@ -95,6 +95,19 @@ struct GalleryView: View {
                         AppView(name: "FlagQuizApp")
                     }
                 }.padding()
+                HStack {
+                    NavigationLink {
+                        ImageCropApp()
+                    } label: {
+                        AppView(name: "alto")
+                    }
+                    Spacer()
+                    NavigationLink {
+                        ImageCropApp()
+                    } label: {
+                        AppView(name: "None")
+                    }
+                }.padding()
             }
             .padding()
             .toolbar{

@@ -45,12 +45,13 @@ struct FruitApp: View {
                 }
             }
             Spacer()
-            Image(systemName: "leaf.fill")
-                .font(.system(size: size / 2, weight: .black))
-                .foregroundColor(.green)
-                .onTapGesture {
-                    path = .init()
-                }
+            Button {
+                path = .init()
+            } label: {
+                Image(systemName: "leaf.fill")
+                    .font(.system(size: size / 2, weight: .black))
+                    .foregroundColor(.green)
+            }
             Spacer()
         }
     }
