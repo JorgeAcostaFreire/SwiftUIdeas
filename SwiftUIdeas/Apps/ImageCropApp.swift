@@ -20,26 +20,47 @@ struct ImageCropApp: View {
     @State var photosItem : PhotosPickerItem?
     @State var selectedPhotoData : Data?
     
-    func convertImage(_ image : UIImage) -> CGImage? {
+    func convertImage(_ image : UIImage) -> CGImage {
         let imageWidth = image.size.width
         let imageHeight = image.size.height
-        let xCenter = imageWidth / 3
-        let yCenter = imageHeight / 3
-        let largest = imageWidth < imageHeight
-        return image.cgImage?.cropping(to: CGRect(x: largest ? yCenter : xCenter + yCenter * 2, y: largest ? yCenter + xCenter : 0, width: 1500, height: 1500))
+        var size : CGFloat {
+            if imageWidth < 1000 || imageHeight < 1000 {
+                return 600
+            } else {
+                return 1200
+            }
+        }
+        let xCenter = imageWidth / 2
+        let yCenter = imageHeight / 2
+        //let largest = imageWidth < imageHeight
+        //.cropping(to: CGRect(x: largest ? yCenter : xCenter + yCenter * 2, y: largest ? yCenter + xCenter : 0, width: 1500, height: 1500))
+        return image.cgImage!.cropping(to: CGRect(origin: CGPoint(x: xCenter - size / 2, y: yCenter - size / 2), size: CGSize(width: size, height: size)))!
     }
     
     func makeTiles(_ image : CGImage, _ dim : Int) -> [CGImage] {
         var size : Int {
-            switch dim {
-            case 3:
-                return 500
-            case 4:
-                return 375
-            case 5:
-                return 300
-            default:
-                return 360
+            if image.width < 700{
+                switch dim {
+                case 3:
+                    return 200
+                case 4:
+                    return 150
+                case 5:
+                    return 120
+                default:
+                    return 120
+                }
+            } else {
+                switch dim {
+                case 3:
+                    return 400
+                case 4:
+                    return 300
+                case 5:
+                    return 240
+                default:
+                    return 240
+                }
             }
         }
         let tileSize = CGSize(width: size, height: size)
@@ -48,8 +69,9 @@ struct ImageCropApp: View {
         for i in 0..<dim {
             for j in 0..<dim {
                 let origin = CGPoint(x: j * size, y: i * size)
-                let tile = image.cropping(to: CGRect(origin: origin, size: tileSize))
-                tiles.append(tile!)
+                if let tile = image.cropping(to: CGRect(origin: origin, size: tileSize)){
+                    tiles.append(tile)
+                }
             }
         }
         
@@ -73,74 +95,49 @@ struct ImageCropApp: View {
     
     var body: some View {
         VStack{
-            /*
-            Spacer()
-            Image(systemName: "photo")
-                .font(.system(.title))
-                .fontWeight(.bold)
-                .onTapGesture {
-                    self.pickerTapped.toggle()
-                }
-                //.photosPicker(isPresented: self.$pickerTapped, selection: self.$photosItem)
-                .photosPicker(isPresented: self.$pickerTapped, selection: self.$photosItem, photoLibrary: .shared())
-            Spacer()
-             */
-            if let selectedPhotoData,
-                let image = UIImage(data: selectedPhotoData) {
-             
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-                    .clipped()
-             
-            }
             PhotosPicker(selection: self.$photosItem,
                           matching: .images,
                           photoLibrary: .shared()) {
                  Image(systemName: "plus.square.fill")
                      .font(.system(.title))
              }
-                          .onChange(of: photosItem) { newItem in
-                              Task {
-                                  if let data = try? await newItem?.loadTransferable(type: Data.self) {
-                                      selectedPhotoData = data
-                                  }
-                              }
-                          }
-
-             
-            /*
-            if let myCGImage = self.myCGImage {
-                Image(myCGImage, scale: 6, label: Text(""))
-            }
-             */
-            
+              .onChange(of: photosItem) { newItem in
+                  Task {
+                      if let data = try? await newItem?.loadTransferable(type: Data.self), let image = UIImage(data: data) {
+                          selectedPhotoData = data
+                          //self.tiles = self.makeTiles(self.convertImage(image), 3)
+                          self.chosenPic = image
+                          self.myCGImage = self.convertImage(image)
+                          self.tiles = self.makeTiles(convertImage(image), 3)
+                      }
+                  }
+              }
             if let tiles = self.tiles {
                 HStack{
                     ForEach(0..<3) { i in
-                        Image(tiles[i], scale: 6, label: Text(""))
+                        Image(tiles[i], scale: 3, label: Text(""))
                     }
                 }
                 HStack{
                     ForEach(3..<6) { i in
-                        Image(tiles[i], scale: 6, label: Text(""))
+                        Image(tiles[i], scale: 3, label: Text(""))
                     }
                 }
                 HStack{
                     ForEach(6..<9) { i in
-                        Image(tiles[i], scale: 6, label: Text(""))
+                        Image(tiles[i], scale: 3, label: Text(""))
                     }
                 }
                 /*
                  HStack{
-                     ForEach(6..<9) { i in
+                     ForEach(12..<16) { i in
                          Image(tiles[i], scale: 6, label: Text(""))
                      }
                  }
                  */
                 /*
                  HStack{
-                     ForEach(6..<9) { i in
+                     ForEach(20..<25) { i in
                          Image(tiles[i], scale: 6, label: Text(""))
                      }
                  }
@@ -164,13 +161,6 @@ struct ImageCropApp: View {
              }
              */
         }
-        .onAppear{
-            self.myCGImage = convertImage(myUIImage)
-            self.tiles = self.makeTiles(convertImage(myUIImage)!, 3)
-            //print()
-        }
-        
-         
     }
 }
 
@@ -192,79 +182,3 @@ struct PhotosURL : Codable {
     var full : String
 }
 
-class PictureVM: ObservableObject {
-    // MARK: - Profile Image
-    
-    enum ImageState : Equatable {
-        static func == (lhs: PictureVM.ImageState, rhs: PictureVM.ImageState) -> Bool {
-            return false
-        }
-        
-        case empty
-        case loading(Progress)
-        case success(UIImage)
-        case failure(Error)
-    }
-    
-    enum TransferError: Error {
-        case importFailed
-    }
-    
-    struct FrameImage: Transferable {
-        let image: UIImage
-        
-        static var transferRepresentation: some TransferRepresentation {
-            DataRepresentation(importedContentType: .image) { data in
-            #if canImport(AppKit)
-                guard let nsImage = NSImage(data: data) else {
-                    throw TransferError.importFailed
-                }
-                let image = Image(nsImage: nsImage)
-                return ProfileImage(image: image)
-            #elseif canImport(UIKit)
-                guard let uiImage = UIImage(data: data) else {
-                    throw TransferError.importFailed
-                }
-                //let image = Image(uiImage: uiImage)
-                return FrameImage(image: uiImage)
-            #else
-                throw TransferError.importFailed
-            #endif
-            }
-        }
-    }
-    
-    @Published private(set) var imageState: ImageState = .empty
-    
-    @Published var imageSelection: PhotosPickerItem? = nil {
-        didSet {
-            if let imageSelection {
-                let progress = loadTransferable(from: imageSelection)
-                imageState = .loading(progress)
-            } else {
-                imageState = .empty
-            }
-        }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
-        return imageSelection.loadTransferable(type: FrameImage.self) { result in
-            DispatchQueue.main.async {
-                guard imageSelection == self.imageSelection else {
-                    print("Failed to get the selected item.")
-                    return
-                }
-                switch result {
-                case .success(let profileImage?):
-                    self.imageState = .success(profileImage.image)
-                case .success(nil):
-                    self.imageState = .empty
-                case .failure(let error):
-                    self.imageState = .failure(error)
-                }
-            }
-        }
-    }
-}
