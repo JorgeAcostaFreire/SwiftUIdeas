@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "CropApp.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Hunting-Axe-Featured.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

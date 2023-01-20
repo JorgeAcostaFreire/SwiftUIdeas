@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F02D7662979A18100819997 /* PickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02D7652979A18100819997 /* PickerApp.swift */; };
 		4F1D977A2902E5760064515A /* SwiftUIdeasApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D97792902E5760064515A /* SwiftUIdeasApp.swift */; };
 		4F1D977C2902E5760064515A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D977B2902E5760064515A /* ContentView.swift */; };
 		4F1D977E2902E5770064515A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D977D2902E5770064515A /* Assets.xcassets */; };
@@ -36,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F02D7652979A18100819997 /* PickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerApp.swift; sourceTree = "<group>"; };
 		4F1D97762902E5760064515A /* SwiftUIdeas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIdeas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F1D97792902E5760064515A /* SwiftUIdeasApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIdeasApp.swift; sourceTree = "<group>"; };
 		4F1D977B2902E5760064515A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				4F790BE8290EEEC20006E52D /* FlagQuizApp.swift */,
 				4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */,
 				4F727E4D2978886C007FB8FB /* ImageCropApp.swift */,
-				4F02D7652979A18100819997 /* PickerApp.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -243,7 +240,6 @@
 				4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */,
 				4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */,
 				4F1D977A2902E5760064515A /* SwiftUIdeasApp.swift in Sources */,
-				4F02D7662979A18100819997 /* PickerApp.swift in Sources */,
 				4F1D97882902E6DF0064515A /* Constants.swift in Sources */,
 				4F1D978C2902E9920064515A /* TitleView.swift in Sources */,
 				4F1D9795290317CB0064515A /* GaugeApp.swift in Sources */,

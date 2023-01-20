@@ -99,11 +99,11 @@ struct GalleryView: View {
                     NavigationLink {
                         ImageCropApp()
                     } label: {
-                        AppView(name: "alto")
+                        AppView(name: "CropApp")
                     }
                     Spacer()
                     NavigationLink {
-                        ImageCropApp()
+                        //
                     } label: {
                         AppView(name: "None")
                     }
