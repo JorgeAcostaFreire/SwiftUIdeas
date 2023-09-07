@@ -54,36 +54,36 @@ enum DemoApp: CustomStringConvertible, Identifiable, Hashable, CaseIterable {
         }
     }
     
-    func view(context: NSManagedObjectContext) -> some View {
+    func view(context: NSManagedObjectContext) -> AnyView {
         switch self {
         case .slider:
-            return SliderApp()
+            return AnyView(SliderApp())
         case .gauge:
-            return GaugeApp()
+            return AnyView(GaugeApp())
         case .picture:
-            return PictureApp()
+            return AnyView(PictureApp())
         case .lorem:
-            return LoremApp()
+            return AnyView(LoremApp())
         case .fruit:
-            return FruitApp()
+            return AnyView(FruitApp())
         case .coretask:
-            return CoreTaskApp().environment(\.managedObjectContext, context)
+            return AnyView(CoreTaskApp().environment(\.managedObjectContext, context))
         case .christmas:
-            return ChristmasApp()
+            return AnyView(ChristmasApp())
         case .converter:
-            return ConverterApp()
+            return AnyView(ConverterApp())
         case .wiki:
-            return WikiApp()
+            return AnyView(WikiApp())
         case .git:
-            return GitApp()
+            return AnyView(GitApp())
         case .currency:
-            return CurrencyApp()
+            return AnyView(CurrencyApp())
         case .flag:
-            return FlagQuizApp()
+            return AnyView(FlagQuizApp())
         case .imagecrop:
-            return ImageCropApp()
+            return AnyView(ImageCropApp())
         case .none:
-            return EmptyView()
+            return AnyView(EmptyView())
         }
     }
     
