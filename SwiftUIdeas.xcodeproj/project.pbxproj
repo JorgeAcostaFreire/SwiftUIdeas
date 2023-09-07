@@ -11,7 +11,6 @@
 		4F1D977C2902E5760064515A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D977B2902E5760064515A /* ContentView.swift */; };
 		4F1D977E2902E5770064515A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D977D2902E5770064515A /* Assets.xcassets */; };
 		4F1D97812902E5770064515A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F1D97802902E5770064515A /* Preview Assets.xcassets */; };
-		4F1D97882902E6DF0064515A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D97872902E6DF0064515A /* Constants.swift */; };
 		4F1D978C2902E9920064515A /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D978B2902E9920064515A /* TitleView.swift */; };
 		4F1D978E2902E9C90064515A /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D978D2902E9C90064515A /* GalleryView.swift */; };
 		4F1D97932902F7240064515A /* SliderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1D97922902F7240064515A /* SliderApp.swift */; };
@@ -31,7 +30,7 @@
 		4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA738A229099A4000CD56B5 /* ConverterApp.swift */; };
 		4FA738A629099AE700CD56B5 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */; };
 		4FE0B53B2978497A0093A78B /* BackButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE0B53A2978497A0093A78B /* BackButtonView.swift */; };
-		4FEB03FC2915C85D0023A18F /* CalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */; };
+		4FF8CB712AA9C4970077A04E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF8CB702AA9C4970077A04E /* AppModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +39,6 @@
 		4F1D977B2902E5760064515A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4F1D977D2902E5770064515A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F1D97802902E5770064515A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4F1D97872902E6DF0064515A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4F1D978B2902E9920064515A /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		4F1D978D2902E9C90064515A /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		4F1D97922902F7240064515A /* SliderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderApp.swift; sourceTree = "<group>"; };
@@ -61,7 +59,7 @@
 		4FA738A429099A8C00CD56B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		4FE0B53A2978497A0093A78B /* BackButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButtonView.swift; sourceTree = "<group>"; };
-		4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorApp.swift; sourceTree = "<group>"; };
+		4FF8CB702AA9C4970077A04E /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,13 +92,9 @@
 		4F1D97782902E5760064515A /* SwiftUIdeas */ = {
 			isa = PBXGroup;
 			children = (
-				4FA738A429099A8C00CD56B5 /* Info.plist */,
-				4F1D97792902E5760064515A /* SwiftUIdeasApp.swift */,
-				4F1D977B2902E5760064515A /* ContentView.swift */,
-				4F1D97912902F7080064515A /* Apps */,
-				4F1D978A2902E96D0064515A /* Model */,
-				4F1D97892902E9670064515A /* View */,
-				4F1D977D2902E5770064515A /* Assets.xcassets */,
+				4FF8CB6E2AA9C0AB0077A04E /* View */,
+				4FF8CB6D2AA9C0A30077A04E /* Model */,
+				4FF8CB6C2AA9C09C0077A04E /* System */,
 				4F1D977F2902E5770064515A /* Preview Content */,
 			);
 			path = SwiftUIdeas;
@@ -114,28 +108,40 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4F1D97892902E9670064515A /* View */ = {
+		4FF8CB6C2AA9C09C0077A04E /* System */ = {
 			isa = PBXGroup;
 			children = (
-				4F1D978B2902E9920064515A /* TitleView.swift */,
-				4F1D978D2902E9C90064515A /* GalleryView.swift */,
-				4FE0B53A2978497A0093A78B /* BackButtonView.swift */,
+				4F1D977D2902E5770064515A /* Assets.xcassets */,
+				4FA738A429099A8C00CD56B5 /* Info.plist */,
+				4F1D97792902E5760064515A /* SwiftUIdeasApp.swift */,
+				4F1D977B2902E5760064515A /* ContentView.swift */,
 			);
-			path = View;
+			name = System;
 			sourceTree = "<group>";
 		};
-		4F1D978A2902E96D0064515A /* Model */ = {
+		4FF8CB6D2AA9C0A30077A04E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4FA738A529099AE700CD56B5 /* PressStart2P-Regular.ttf */,
 				4F2001D229047B0300F03D1A /* CoreTask.xcdatamodeld */,
 				4F2001D429047B0300F03D1A /* Persistence.swift */,
-				4F1D97872902E6DF0064515A /* Constants.swift */,
+				4FF8CB702AA9C4970077A04E /* AppModel.swift */,
 			);
-			path = Model;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		4F1D97912902F7080064515A /* Apps */ = {
+		4FF8CB6E2AA9C0AB0077A04E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FF8CB6F2AA9C0DB0077A04E /* Apps */,
+				4F1D978B2902E9920064515A /* TitleView.swift */,
+				4F1D978D2902E9C90064515A /* GalleryView.swift */,
+				4FE0B53A2978497A0093A78B /* BackButtonView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4FF8CB6F2AA9C0DB0077A04E /* Apps */ = {
 			isa = PBXGroup;
 			children = (
 				4F1D97922902F7240064515A /* SliderApp.swift */,
@@ -150,10 +156,9 @@
 				4F9B4CEF290C62CA00133EE7 /* GitApp.swift */,
 				4F9B4CF1290D950700133EE7 /* CurrencyApp.swift */,
 				4F790BE8290EEEC20006E52D /* FlagQuizApp.swift */,
-				4FEB03FB2915C85D0023A18F /* CalculatorApp.swift */,
 				4F727E4D2978886C007FB8FB /* ImageCropApp.swift */,
 			);
-			path = Apps;
+			name = Apps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA738A329099A4000CD56B5 /* ConverterApp.swift in Sources */,
-				4FEB03FC2915C85D0023A18F /* CalculatorApp.swift in Sources */,
 				4F1D9799290442570064515A /* LoremApp.swift in Sources */,
 				4F9B4CF0290C62CA00133EE7 /* GitApp.swift in Sources */,
 				4F1D9797290341070064515A /* PictureApp.swift in Sources */,
@@ -240,7 +244,7 @@
 				4F2001DA290538BE00F03D1A /* ChristmasApp.swift in Sources */,
 				4F2001D829047B4E00F03D1A /* CoreTaskApp.swift in Sources */,
 				4F1D977A2902E5760064515A /* SwiftUIdeasApp.swift in Sources */,
-				4F1D97882902E6DF0064515A /* Constants.swift in Sources */,
+				4FF8CB712AA9C4970077A04E /* AppModel.swift in Sources */,
 				4F1D978C2902E9920064515A /* TitleView.swift in Sources */,
 				4F1D9795290317CB0064515A /* GaugeApp.swift in Sources */,
 				4F2001D529047B0300F03D1A /* CoreTask.xcdatamodeld in Sources */,

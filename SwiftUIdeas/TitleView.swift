@@ -8,29 +8,28 @@
 import SwiftUI
 
 struct TitleView: View {
-    @State var isEnterTapped : Bool = false
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Spacer()
                 Image(systemName: "figure.wave")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-                    .font(.system(size: size / 5, weight: .black, design: .rounded))
-                    .padding()
-                Spacer(minLength: 50)
+                    .font(.system(size: 100, weight: .black, design: .rounded))
+                Spacer()
                 NavigationLink {
-                    GalleryView().navigationBarBackButtonHidden()
+                    GalleryView()
                 } label: {
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(height: size / 3)
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(height: 120)
                         .padding(.horizontal)
                         .overlay {
                             Image(systemName: "hand.tap.fill")
                                 .foregroundColor(.white)
-                                .font(.system(size: size / 6, weight: .bold, design: .rounded))
+                                .font(.largeTitle)
+                                .scaleEffect(1.8)
                         }
-                        .padding(.bottom)
+                        .padding(.bottom, 5)
                 }
             }
         }
