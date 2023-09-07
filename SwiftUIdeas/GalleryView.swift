@@ -16,7 +16,10 @@ struct GalleryView: View {
         NavigationStack {
             LazyVGrid(columns: gridItems) {
                 ForEach(DemoApp.allCases) { app in
-                    NavigationLink(value: app) {
+                    NavigationLink {
+                        app.view(context: viewContext)
+                            .navigationBarBackButtonHidden()
+                    } label: {
                         Image(app.name(colorScheme == .dark))
                             .resizable()
                             .scaledToFill()
@@ -24,10 +27,6 @@ struct GalleryView: View {
                             .cornerRadius(10)
                     }.padding(.bottom)
                 }
-            }
-            .navigationDestination(for: DemoApp.self) { app in
-                app.view(context: viewContext)
-                    .navigationBarBackButtonHidden()
             }
             .navigationTitle("Gallery")
             .navigationBarTitleDisplayMode(.large)
