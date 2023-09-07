@@ -47,7 +47,7 @@ struct ImageCropApp: View {
     }
     
     func loadImage() async {
-        let key = "32976236-c7422bbb9d2a677f41cbdd889"
+        let key = ""
         let string = "https://pixabay.com/api/?key=\(key)&category=\(category.name)&image_type=photo&per_page=10&safesearch=true"
         guard let url = URL(string: string) else {
             print("Invalid URL")
