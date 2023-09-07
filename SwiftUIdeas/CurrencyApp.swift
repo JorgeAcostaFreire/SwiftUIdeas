@@ -16,7 +16,7 @@ struct CurrencyApp: View {
     @State var quantity : Int = 0
     @State var isConversionRequested : Bool = false
     
-    private let api_key : String = "fMpPFVNIytmCsAwpFyvMiahiRPNL7JU5"
+    private let api_key : String = ""
     
     func fetchSymbols() async {
         guard let url = URL(string: "https://api.apilayer.com/exchangerates_data/symbols?apikey=\(api_key)") else {return}
